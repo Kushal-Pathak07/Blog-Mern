@@ -32,7 +32,7 @@ axiosInstance.interceptors.request.use( //for request , takes two callback funct
     }
 )
 
-axiosInstance.interceptors.response.use( 
+axiosInstance.interceptors.response.use(  
     //for response
     function(response)
     {

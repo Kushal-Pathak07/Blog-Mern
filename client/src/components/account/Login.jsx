@@ -5,6 +5,7 @@ import {API} from '../../service/api';
 import logo from '../../assets/Logo.jpg';
 import { DataContext } from '../../context/DataProvider';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Container = styled(Box)`
   width: 400px;
@@ -91,18 +92,19 @@ const Login = ({isUserAuthenticated}) => {
           let response = await API.userSignup(signup);
           if(response.isSuccess) 
           {
+            toast.success('Signup Successfully');
             setError(' ');
             setSignup(signupInitialValues);
             setAccount('login');
           } 
           else 
           {
-            setError('Something went wrong. Please try again later.');
+            toast.error('Something went wrong. Please try again later.');
           }
         } 
         catch(error) 
         {
-          setError('Something went wrong. Please try again later.');
+          toast.error('Something went wrong. Please try again later.');
         }
     };
 
@@ -120,16 +122,17 @@ const Login = ({isUserAuthenticated}) => {
 
             setAcc({username: response.data.username, name: response.data.name});
             isUserAuthenticated(true);
+            toast.success('Login Successfully');
             navigate('/');  
           } 
           else 
           {
-            setError('Something went wrong. Please try again later.');
+            toast.error('Something went wrong. Please try again later.');
           }
         } 
         catch(error) 
         {
-          setError('Something went wrong. Please try again later.');
+          toast.error('Something went wrong. Please try again later.');
         }
     };
 

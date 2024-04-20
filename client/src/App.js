@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import DataProvider from './context/DataProvider';
 import {BrowserRouter , Routes, Route, Outlet, Navigate} from 'react-router-dom'
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <DataProvider>
+      <Toaster/>
       <BrowserRouter>
         <div style={{marginTop:50}}>
           <Routes>
